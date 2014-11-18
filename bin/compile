@@ -5,7 +5,7 @@
 set -e
 
 # Debug
-set -x
+# set -x
 
 # Clean up leaking environment
 unset GIT_DIR
@@ -109,9 +109,8 @@ mkdir -p $BUILD_DIR/.bundle
 if [ -f $CACHE_DIR/.bundle/config ]; then
   rm $CACHE_DIR/.bundle/config
 fi
-cat <<EOF > $BUILD_DIR/.bundle/config
----
-BUNDLE_BUILD__RGEO: '--with-geos-dir=$BUILD_DIR/$TARGET_VENDOR_DIR --with-geos-lib=$BUILD_DIR/$TARGET_VENDOR_DIR/lib --with-proj-dir=$BUILD_DIR/$TARGET_VENDOR_DIR --with-proj-lib=$BUILD_DIR/$TARGET_VENDOR_DIR/lib'
+cat > $BUILD_DIR/.bundle/config <<EOF
+BUNDLE_BUILD__RGEO: --with-geos-dir=$BUILD_DIR/$TARGET_VENDOR_DIR --with-geos-lib=$BUILD_DIR/$TARGET_VENDOR_DIR/lib --with-proj-dir=$BUILD_DIR/$TARGET_VENDOR_DIR --with-proj-lib=$BUILD_DIR/$TARGET_VENDOR_DIR/lib
 BUNDLE_FROZEN: '1'
 BUNDLE_PATH: vendor/bundle
 BUNDLE_BIN: vendor/bundle/bin
