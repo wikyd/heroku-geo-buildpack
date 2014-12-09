@@ -17,6 +17,10 @@ S3_BUCKET=${HEROKU_GEO_BUILDBACK_S3_BUCKET:-"cyberdelia-geo-buildpack"}
 BUILD_DIR=$1
 CACHE_DIR="${2}/${STACK}"
 
+echo $STACK
+echo $CACHE_DIR
+echo "http://${S3_BUCKET}.s3.amazonaws.com/${STACK}"
+
 # Setup profile file
 PROFILE_PATH="$BUILD_DIR/.profile.d/geo.sh"
 mkdir -p $(dirname $PROFILE_PATH)
