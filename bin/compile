@@ -52,6 +52,11 @@ function set-default-env (){
   echo "export $1=\${$1:-$2}" >> $PROFILE_PATH
 }
 
+# Check if a stack is set
+if [ -e "$STACK" ]; then
+  echo " !     No stack set."
+fi
+
 # Retrieve versions
 GEOS_VERSION=$(manifest_version "geos")
 GDAL_VERSION=$(manifest_version "gdal")
