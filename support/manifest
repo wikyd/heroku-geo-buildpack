@@ -5,7 +5,7 @@ set -e
 manifest_type="$1"
 
 if [ "$manifest_type" == "" ]; then
-  echo "usage: $0 <geos|gdal|proj>"
+  echo "usage: $0 <geos|proj>"
   exit 1
 fi
 
